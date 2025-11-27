@@ -1,0 +1,62 @@
+{
+  "analysis": "ML9_Market_Regime_Analysis",
+  "period": "2021-10-01 to 2024-12-31",
+  "regimes": [
+    {
+      "name": "2021 H2 - Post-COVID Rally",
+      "start": "2021-10-01",
+      "end": "2021-12-31",
+      "total_return": 0.28475900867507,
+      "annual_return": 1.682164017893748,
+      "annual_vol": 0.1955070602267136,
+      "sharpe_ratio": 8.604108802736226,
+      "max_drawdown": -0.05138606542766522,
+      "win_rate": 0.609375,
+      "days": 64
+    },
+    {
+      "name": "2022 - Bear Market",
+      "start": "2022-01-01",
+      "end": "2022-12-31",
+      "total_return": 0.6955865742280944,
+      "annual_return": 1.285259925439869,
+      "annual_vol": 0.32850428171763435,
+      "sharpe_ratio": 3.912460192968241,
+      "max_drawdown": -0.1252228385609211,
+      "win_rate": 0.5403726708074534,
+      "days": 161
+    },
+    {
+      "name": "2023 - AI Boom",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "total_return": 0.9284418879705496,
+      "annual_return": 0.9386000015038762,
+      "annual_vol": 0.1626922192374235,
+      "sharpe_ratio": 5.7691757227439275,
+      "max_drawdown": -0.05793699257416485,
+      "win_rate": 0.588,
+      "days": 250
+    },
+    {
+      "name": "2024 - Consolidation",
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "total_return": 0.6006638900657537,
+      "annual_return": 0.6006638900657537,
+      "annual_vol": 0.20044538283804786,
+      "sharpe_ratio": 2.9966461764353385,
+      "max_drawdown": -0.08449774536969666,
+      "win_rate": 0.5317460317460317,
+      "days": 252
+    }
+  ],
+  "summary": {
+    "best_regime": "2021 H2 - Post-COVID Rally",
+    "worst_regime": "2024 - Consolidation",
+    "sharpe_range": [
+      2.9966461764353385,
+      8.604108802736226
+    ]
+  }
+}
