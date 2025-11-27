@@ -1,0 +1,34 @@
+### 점수
+1. 코드 구조 및 설계: 22/25  
+   (모듈화와 데이터 흐름이 잘 설계되었으나, 에러 처리 부족과 단위 테스트 부재로 인해 점수 감점. 코드가 직관적이고 재사용 가능하게 구성됨.)
+2. 룩어헤드 바이어스 방지: 25/25  
+   (모든 검토 포인트에서 룩어헤드 없음. Features는 signal_prices 기반, Labels는 실제 prices 기반으로 분리되어 백테스트 신뢰성 높음.)
+3. Signal/Execution Smoothing 구현: 23/25  
+   (Signal Smoothing은 월초 3일 평균과 윈도우 마지막 날 리밸 기준 설정이 올바름. Execution Smoothing은 2-step 전환이 구현되었으나, 날짜 매핑이 단순하여 실제 거래일 고려 부족.)
+4. 전체 파이프라인 통합: 24/25  
+   (FV4/ML10 엔진이 signal_prices를 올바르게 사용하며, 파이프라인 흐름이 일관됨. 앙상블과 리스크 레이어 통합 우수하나, 일부 에지 케이스(예: 불완전한 윈도우) 처리 미흡.)
+
+**총점: 94/100**
+
+### 주요 발견 사항
+**강점**:
+- **룩어헤드 바이어스 방지**: 모든 파일에서 미래 데이터 사용이 철저히 방지됨. 예를 들어, `utils/signal_prices.py`에서 윈도우 마지막 날을 리밸 기준으로 설정하고 과거 가격만 사용하며, `engines/ml_xgboost_v10_signal_smoothing.py`에서 Features(signal_prices 기반)와 Labels(실제 prices 기반)를 명확히 분리하여 ML 학습의 신뢰성을 높임. 이는 백테스트의 과적합 위험을 최소화하는 우수한 설계.
+- **Signal Smoothing 구현**: `utils/signal_prices.py`에서 월초 3일 평균 계산이 정확하며, 윈도우 마지막 날을 signal_date로 설정하여 리밸 민감도를 효과적으로 줄임. `utils/factors.py`와 엔진 파일들(FV4/ML10)에서 signal_prices를 일관되게 사용해 통합성 높음.
+- **Execution Smoothing 구현**: `utils/execution_smoothing.py`에서 2-step 포트 전환이 올바르게 구현되어 거래 비용 현실화에 기여. 백테스트 파이프라인(`backtest_v1_4.py`)에서 FV4/ML10 weights에 적용되어 전체 흐름이 부드러움.
+- **전체 파이프라인 통합**: 데이터 흐름(가격 → signal_prices → factors → 엔진 → smoothing → 앙상블 → 리스크)이 일방향으로 설계되어 유지보수 용이. FV4/ML10 엔진이 signal_prices를 올바르게 통합하며, 60:40 앙상블이 전략 다각화를 잘 반영.
+- **설계 의도 반영**: Signal/Execution Smoothing이 팩터 계산부터 엔진 레벨에 통합되어 후처리 방식보다 효율적. ML10의 Train/Test 분리(2023-06-01 기준)가 명확.
+
+**약점**:
+- **코드 구조**: 에러 처리 부족(예: `utils/signal_prices.py`에서 윈도우 길이 부족 시 단순 continue, 하지만 데이터 누락 시 예외 발생 가능). 단위 테스트 부재로 인해 잠재적 버그 검증 어려움. Value Proxy가 가격 역수로 단순화되어 실제 fundamentals 반영 부족.
+- **Execution Smoothing**: 날짜 매핑이 단순(리밸 d+1부터 순차 적용)하여 실제 거래일(주말/공휴일)이나 시장 휴장 고려 미흡. 이는 슬리피지 시뮬레이션의 정확성을 떨어뜨릴 수 있음.
+- **통합 세부**: `backtest_v1_4.py`에서 signal_df 확장(expand_signal_prices)이 명시되지 않았으나, 불완전한 윈도우 처리 시 데이터 불일치 발생 가능. 잠재적 문제점으로 지적된 대로, 에러 처리와 테스트 부족이 전체 안정성 저하.
+
+### 개선 사항
+- **룩어헤드 관련**: 이미 우수하나, ML10의 `_prepare_ml_dataset`에서 future_date 계산 시 가격 데이터의 연속성을 검증하는 로직 추가(예: missing dates 시 보간 또는 스킵 로그).
+- **Signal Smoothing**: `utils/signal_prices.py`에서 윈도우 길이 부족 시( len(window_dates) < cfg.window ) 대체 로직 추가(예: 이전 signal_date 롤오버 또는 경고 로그). 윈도우 평균 계산에 가중 평균(예: 최근 날짜 더 높은 가중) 도입 고려로 스무딩 효과 강화.
+- **Execution Smoothing**: `utils/execution_smoothing.py`에서 execution_schedule 생성 시 실제 거래일 캘린더(예: pandas.tseries.holiday) 통합하여 주말/휴장 스킵. n_steps를 동적으로 설정(예: 시장 변동성 기반)하여 현실성 높임.
+- **코드 구조 및 통합**: 모든 파일에 try-except 블록 추가(예: 데이터 로드 실패 시 fallback). Pytest나 unittest로 단위 테스트 구현(예: signal_prices 생성 테스트, 룩어헤드 체크 함수). Value Proxy를 fundamentals 데이터(예: PER, PBR)로 보강하여 FV4 엔진의 정확성 향상.
+- **전반적**: 백테스트 파이프라인에 로깅 프레임워크(예: logging 모듈) 추가로 디버깅 용이. 잠재적 문제점 해결을 위해 에러 처리 강화와 단위 테스트 도입 우선.
+
+### 최종 판정
+Fail (95점 이상 Pass 기준 미달. 총점 94점으로 근소한 차이이니, 에러 처리와 테스트 추가 시 쉽게 Pass 가능.)

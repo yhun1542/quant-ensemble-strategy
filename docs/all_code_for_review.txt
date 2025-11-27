@@ -1,0 +1,17 @@
+=== utils/signal_prices.py ===
+$(cat utils/signal_prices.py)
+
+=== utils/factors.py ===
+$(cat utils/factors.py)
+
+=== utils/execution_smoothing.py ===
+$(cat utils/execution_smoothing.py)
+
+=== engines/factor_value_v4_signal_smoothing.py ===
+$(cat engines/factor_value_v4_signal_smoothing.py)
+
+=== engines/ml_xgboost_v10_signal_smoothing.py ===
+$(cat engines/ml_xgboost_v10_signal_smoothing.py)
+
+=== backtest_v1_4.py ===
+$(cat backtest_v1_4.py)

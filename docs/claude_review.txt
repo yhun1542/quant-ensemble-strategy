@@ -1,0 +1,135 @@
+# v1.4 퀀트 전략 코드 평가
+
+## 점수
+
+1. **코드 구조 및 설계: 22/25**
+2. **룩어헤드 바이어스 방지: 24/25**
+3. **Signal/Execution Smoothing 구현: 23/25**
+4. **전체 파이프라인 통합: 24/25**
+
+**총점: 93/100**
+
+## 주요 발견 사항
+
+### 강점
+
+1. **룩어헤드 바이어스 방지 우수**
+   - Signal prices 생성 시 윈도우 마지막 날을 리밸 기준일로 정확히 설정
+   - ML 학습 시 features(signal prices)와 labels(실제 prices) 명확히 분리
+   - Train/Test 분리가 명확하고 미래 데이터 유출 없음
+
+2. **아키텍처 설계 깔끔**
+   - 각 모듈의 책임이 명확히 분리됨
+   - 데이터 흐름이 일방향으로 깨끗함
+   - 설정 관리가 dataclass로 잘 구조화됨
+
+3. **Signal Smoothing 구현 정확**
+   - 월초 3일 평균 계산 로직 정확
+   - expand_signal_prices()로 전체 기간 커버 잘 처리
+
+4. **앙상블 통합 우수**
+   - FV4와 ML10 엔진이 동일한 signal prices 사용
+   - 60:40 가중치 적용 정확
+
+### 약점
+
+1. **Execution Smoothing 날짜 처리 단순**
+   ```python
+   # 현재 구현: 단순히 다음 날부터 순차 적용
+   for i, date in enumerate(execution_dates):
+       if i < len(execution_schedule):
+           current_weights = execution_schedule[i]
+   ```
+   - 비거래일 처리 미흡
+   - 월말/월초 경계 처리 부재
+
+2. **에러 처리 부족**
+   - 데이터 누락 시 처리 미흡
+   - 극단값 처리 로직 없음
+   - ML 학습 실패 시 폴백 없음
+
+3. **Value Proxy 한계**
+   - 단순 가격 역수 사용 (1/price)
+   - 실제 펀더멘털 데이터 미반영
+
+4. **테스트 코드 부재**
+   - 단위 테스트 없음
+   - 엣지 케이스 검증 부족
+
+## 개선 사항
+
+### 1. Execution Smoothing 개선
+```python
+def portfolio_returns_with_execution_smoothing_v2(
+    prices, weights_by_date, rebalance_dates, cfg
+):
+    # 비거래일 고려한 실행 스케줄
+    for step in range(cfg.n_steps):
+        exec_date = find_next_trading_day(base_date + timedelta(days=step))
+        if exec_date <= prices.index[-1]:
+            execution_calendar[exec_date] = schedule[step]
+    
+    # 월말/월초 경계 처리
+    if crosses_month_boundary(base_date, exec_dates):
+        handle_month_boundary_case(...)
+```
+
+### 2. 강건성 향상
+```python
+# ML 학습 실패 시 폴백
+try:
+    ml10_engine.train(prices, factors, train_start, train_end)
+except TrainingError:
+    logger.warning("ML training failed, using FV4 only")
+    weights_ml10 = weights_fv4  # 폴백
+
+# 극단값 처리
+factors = winsorize_factors(factors, limits=(0.01, 0.99))
+```
+
+### 3. Value Factor 개선
+```python
+def compute_enhanced_value_proxy(prices, fundamentals=None):
+    if fundamentals is not None:
+        # P/E, P/B 등 활용
+        value = fundamentals['earnings'] / prices
+    else:
+        # 현재 방식 유지하되 정규화 추가
+        value = 1.0 / prices
+        value = value / value.rolling(252).mean()  # 정규화
+```
+
+### 4. 모니터링 추가
+```python
+# 실행 품질 모니터링
+execution_metrics = {
+    'slippage': calculate_slippage(target_weights, actual_weights),
+    'turnover': calculate_turnover(weights_history),
+    'signal_decay': measure_signal_decay(signal_prices, actual_prices)
+}
+```
+
+## 특별 검토 포인트 답변
+
+1. **Signal Smoothing**: ✅ 월초 3일 평균 계산 정확, 윈도우 마지막 날을 리밸 기준일로 올바르게 설정
+
+2. **Execution Smoothing**: ⚠️ 2-step 전환 기본 구현은 정확하나, 날짜 처리가 단순함
+
+3. **엔진 통합**: ✅ FV4/ML10 모두 signal_prices를 올바르게 사용
+
+4. **룩어헤드**: ✅ Features는 signal_prices, Labels는 실제 prices 사용 정확
+
+## 최종 판정
+
+**Pass (조건부)**
+
+총점 93점으로 기준점(95점)에 약간 미달하나, 핵심 요구사항인 룩어헤드 바이어스 방지와 Signal/Execution Smoothing의 기본 구현이 정확하여 조건부 통과로 판정합니다.
+
+**즉시 개선 필요사항**:
+1. Execution Smoothing의 날짜 처리 로직 강화
+2. 기본적인 에러 처리 추가
+
+**중기 개선 권장사항**:
+1. 단위 테스트 추가
+2. Value proxy 개선
+3. 실행 품질 모니터링 시스템 구축

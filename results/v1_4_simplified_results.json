@@ -1,0 +1,24 @@
+{
+  "v1.2": {
+    "annual_return": 0.18587030625900147,
+    "annual_volatility": 0.11782104138381283,
+    "sharpe_ratio": 1.5775646189844132,
+    "max_drawdown": -0.1001174764455837,
+    "total_return": 0.7391101274889511,
+    "n_days": 818
+  },
+  "v1.4": {
+    "annual_return": 0.18618750203629642,
+    "annual_volatility": 0.11550694537347793,
+    "sharpe_ratio": 1.6119160751267496,
+    "max_drawdown": -0.09997587536924125,
+    "total_return": 0.740620557128497,
+    "n_days": 818
+  },
+  "comparison": {
+    "sharpe_change_pct": 2.1774991483043404,
+    "return_change_pp": 0.0317195777294943,
+    "vol_change_pct": -1.9640770300073274,
+    "dd_change_pp": 0.014160107634245134
+  }
+}
