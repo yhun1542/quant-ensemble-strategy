@@ -1,0 +1,15 @@
+{
+  "strategy": "QV_Long_Only_v2_0",
+  "date": "2025-11-27T10:01:23.700197",
+  "metrics": {
+    "name": "QV Long-Only",
+    "total_return": 6.142716538005137,
+    "annual_return": 0.8693206947357888,
+    "annual_vol": 1.2449990151693342,
+    "sharpe_ratio": 0.6982501063404867,
+    "max_drawdown": -0.1880723141940619,
+    "win_rate": 0.5441919191919192,
+    "days": 792
+  },
+  "rebalance_count": 39
+}
