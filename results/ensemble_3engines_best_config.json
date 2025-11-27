@@ -1,0 +1,19 @@
+{
+  "weights": {
+    "fv3c": 0.30000000000000004,
+    "ml9": 0.2,
+    "momentum": 0.5
+  },
+  "metrics": {
+    "sharpe": 2.970838061770821,
+    "ann_return": 0.37363468465234884,
+    "ann_vol": 0.12576743561365214,
+    "max_drawdown": -0.0573858111620279,
+    "win_rate": 0.8
+  },
+  "comparison_vs_2engine": {
+    "sharpe_improvement_pct": 29.734932865014873,
+    "return_improvement_pp": 2.622157563097849,
+    "maxdd_improvement_pp": 0.6065360687229848
+  }
+}
