@@ -1,0 +1,297 @@
+{
+  "strategy": "FV3c_ML9_Ensemble",
+  "date": "2025-11-27T10:25:13.541083",
+  "engine_metrics": {
+    "fv3c": {
+      "name": "FV3c",
+      "total_return": -0.30988556448734195,
+      "annual_return": -0.11746328662964844,
+      "annual_vol": 0.13105576989008777,
+      "sharpe_ratio": -0.8962847399100482,
+      "max_drawdown": -0.3552564346357337,
+      "win_rate": 0.5,
+      "days": 748
+    },
+    "ml9": {
+      "name": "ML9",
+      "total_return": 5.72431956699336,
+      "annual_return": 0.9359214611602054,
+      "annual_vol": 0.22403095613944216,
+      "sharpe_ratio": 4.177643470742792,
+      "max_drawdown": -0.12522283856092084,
+      "win_rate": 0.5598349381017882,
+      "days": 727
+    }
+  },
+  "engine_correlations": {
+    "fv3c": {
+      "fv3c": 1.0,
+      "ml9": -0.04928041402718327
+    },
+    "ml9": {
+      "fv3c": -0.04928041402718327,
+      "ml9": 1.0
+    }
+  },
+  "grid_search_results": [
+    {
+      "w_fv": 0.0,
+      "w_ml": 1.0,
+      "name": "Ensemble_FV0.00_ML1.00",
+      "total_return": 5.72431956699336,
+      "annual_return": 0.9359214611602054,
+      "annual_vol": 0.22403095613944216,
+      "sharpe_ratio": 4.177643470742792,
+      "max_drawdown": -0.12522283856092084,
+      "win_rate": 0.5598349381017882,
+      "days": 727
+    },
+    {
+      "w_fv": 0.05,
+      "w_ml": 0.95,
+      "name": "Ensemble_FV0.05_ML0.95",
+      "total_return": 5.028838672806149,
+      "annual_return": 0.8640277941442303,
+      "annual_vol": 0.2126064951923413,
+      "sharpe_ratio": 4.0639764714740245,
+      "max_drawdown": -0.1195157267308169,
+      "win_rate": 0.562585969738652,
+      "days": 727
+    },
+    {
+      "w_fv": 0.1,
+      "w_ml": 0.9,
+      "name": "Ensemble_FV0.10_ML0.90",
+      "total_return": 4.402631556357644,
+      "annual_return": 0.7944980168498581,
+      "annual_vol": 0.20140911354353705,
+      "sharpe_ratio": 3.944697451230863,
+      "max_drawdown": -0.11386247567199535,
+      "win_rate": 0.5667125171939478,
+      "days": 727
+    },
+    {
+      "w_fv": 0.15000000000000002,
+      "w_ml": 0.85,
+      "name": "Ensemble_FV0.15_ML0.85",
+      "total_return": 3.83907936758989,
+      "annual_return": 0.7272663047311423,
+      "annual_vol": 0.19047886226565852,
+      "sharpe_ratio": 3.8180945438283485,
+      "max_drawdown": -0.10818374149814113,
+      "win_rate": 0.5598349381017882,
+      "days": 727
+    },
+    {
+      "w_fv": 0.2,
+      "w_ml": 0.8,
+      "name": "Ensemble_FV0.20_ML0.80",
+      "total_return": 3.332166768302235,
+      "annual_return": 0.662268224668229,
+      "annual_vol": 0.17986444799584486,
+      "sharpe_ratio": 3.6820407370528745,
+      "max_drawdown": -0.10247948199401093,
+      "win_rate": 0.562585969738652,
+      "days": 727
+    },
+    {
+      "w_fv": 0.25,
+      "w_ml": 0.75,
+      "name": "Ensemble_FV0.25_ML0.75",
+      "total_return": 2.876429782321285,
+      "annual_return": 0.5994407214586648,
+      "annual_vol": 0.16962517226780993,
+      "sharpe_ratio": 3.533913707761768,
+      "max_drawdown": -0.09674965535579746,
+      "win_rate": 0.562585969738652,
+      "days": 727
+    },
+    {
+      "w_fv": 0.30000000000000004,
+      "w_ml": 0.7,
+      "name": "Ensemble_FV0.30_ML0.70",
+      "total_return": 2.46690787429639,
+      "annual_return": 0.5387221038213139,
+      "annual_vol": 0.1598331480392049,
+      "sharpe_ratio": 3.3705280189386793,
+      "max_drawdown": -0.09099422019451034,
+      "win_rate": 0.5708390646492435,
+      "days": 727
+    },
+    {
+      "w_fv": 0.35000000000000003,
+      "w_ml": 0.6499999999999999,
+      "name": "Ensemble_FV0.35_ML0.65",
+      "total_return": 2.099099940135875,
+      "annual_return": 0.480052029942478,
+      "annual_vol": 0.15057565569694367,
+      "sharpe_ratio": 3.1881118346823305,
+      "max_drawdown": -0.08521313553935943,
+      "win_rate": 0.5763411279229711,
+      "days": 727
+    },
+    {
+      "w_fv": 0.4,
+      "w_ml": 0.6,
+      "name": "Ensemble_FV0.40_ML0.60",
+      "total_return": 1.7689239135253136,
+      "annual_return": 0.4233714925932648,
+      "annual_vol": 0.141957309414523,
+      "sharpe_ratio": 2.98238600280171,
+      "max_drawdown": -0.07940636084113276,
+      "win_rate": 0.5639614855570839,
+      "days": 727
+    },
+    {
+      "w_fv": 0.45,
+      "w_ml": 0.55,
+      "name": "Ensemble_FV0.45_ML0.55",
+      "total_return": 1.472679713150221,
+      "annual_return": 0.3686228038464825,
+      "annual_vol": 0.13410139460520418,
+      "sharpe_ratio": 2.748836467597609,
+      "max_drawdown": -0.07399359436846717,
+      "win_rate": 0.5502063273727648,
+      "days": 727
+    },
+    {
+      "w_fv": 0.5,
+      "w_ml": 0.5,
+      "name": "Ensemble_FV0.50_ML0.50",
+      "total_return": 1.2070152742389633,
+      "annual_return": 0.3157495794207612,
+      "annual_vol": 0.1271493102817105,
+      "sharpe_ratio": 2.483297618533598,
+      "max_drawdown": -0.0726591377268684,
+      "win_rate": 0.5502063273727648,
+      "days": 727
+    },
+    {
+      "w_fv": 0.55,
+      "w_ml": 0.44999999999999996,
+      "name": "Ensemble_FV0.55_ML0.45",
+      "total_return": 0.968895425898773,
+      "annual_return": 0.2646967226788517,
+      "annual_vol": 0.12125661592825629,
+      "sharpe_ratio": 2.1829466429729854,
+      "max_drawdown": -0.07346373879067378,
+      "win_rate": 0.5570839064649243,
+      "days": 727
+    },
+    {
+      "w_fv": 0.6000000000000001,
+      "w_ml": 0.3999999999999999,
+      "name": "Ensemble_FV0.60_ML0.40",
+      "total_return": 0.7555733924932253,
+      "annual_return": 0.21541040830646963,
+      "annual_vol": 0.11658406168441114,
+      "sharpe_ratio": 1.847683166928751,
+      "max_drawdown": -0.08046548346503478,
+      "win_rate": 0.5488308115543329,
+      "days": 727
+    },
+    {
+      "w_fv": 0.65,
+      "w_ml": 0.35,
+      "name": "Ensemble_FV0.65_ML0.35",
+      "total_return": 0.5645647130530631,
+      "annual_return": 0.16783806569728243,
+      "annual_vol": 0.11328272905655332,
+      "sharpe_ratio": 1.481585649419638,
+      "max_drawdown": -0.09330295848263939,
+      "win_rate": 0.5515818431911967,
+      "days": 727
+    },
+    {
+      "w_fv": 0.7000000000000001,
+      "w_ml": 0.29999999999999993,
+      "name": "Ensemble_FV0.70_ML0.30",
+      "total_return": 0.39362338747597536,
+      "annual_return": 0.12192836206900348,
+      "annual_vol": 0.1114745114246764,
+      "sharpe_ratio": 1.0937779453861143,
+      "max_drawdown": -0.1060168794313276,
+      "win_rate": 0.5502063273727648,
+      "days": 727
+    },
+    {
+      "w_fv": 0.75,
+      "w_ml": 0.25,
+      "name": "Ensemble_FV0.75_ML0.25",
+      "total_return": 0.24072007210292456,
+      "annual_return": 0.07763118533491209,
+      "annual_vol": 0.11123224992529866,
+      "sharpe_ratio": 0.6979197614634931,
+      "max_drawdown": -0.11860750538353143,
+      "win_rate": 0.530949105914718,
+      "days": 727
+    },
+    {
+      "w_fv": 0.8,
+      "w_ml": 0.19999999999999996,
+      "name": "Ensemble_FV0.80_ML0.20",
+      "total_return": 0.10402216020637378,
+      "annual_return": 0.034897626754338607,
+      "annual_vol": 0.11256605563277888,
+      "sharpe_ratio": 0.3100190955272002,
+      "max_drawdown": -0.13198206551480973,
+      "win_rate": 0.5268225584594223,
+      "days": 727
+    },
+    {
+      "w_fv": 0.8500000000000001,
+      "w_ml": 0.1499999999999999,
+      "name": "Ensemble_FV0.85_ML0.15",
+      "total_return": -0.01812440496341816,
+      "annual_return": -0.006320036614918978,
+      "annual_vol": 0.11542130249309952,
+      "sharpe_ratio": -0.05475624064541138,
+      "max_drawdown": -0.1580656586568557,
+      "win_rate": 0.5103163686382394,
+      "days": 727
+    },
+    {
+      "w_fv": 0.9,
+      "w_ml": 0.09999999999999998,
+      "name": "Ensemble_FV0.90_ML0.10",
+      "total_return": -0.12721172561052696,
+      "annual_return": -0.04606835964001499,
+      "annual_vol": 0.11968915568625778,
+      "sharpe_ratio": -0.38490003021472036,
+      "max_drawdown": -0.21935152536227553,
+      "win_rate": 0.5061898211829436,
+      "days": 727
+    },
+    {
+      "w_fv": 0.9500000000000001,
+      "w_ml": 0.04999999999999993,
+      "name": "Ensemble_FV0.95_ML0.05",
+      "total_return": -0.2245850837727511,
+      "annual_return": -0.08439274699079014,
+      "annual_vol": 0.12522526757719019,
+      "sharpe_ratio": -0.6739274638704169,
+      "max_drawdown": -0.2828736070160385,
+      "win_rate": 0.5006877579092159,
+      "days": 727
+    },
+    {
+      "w_fv": 1.0,
+      "w_ml": 0.0,
+      "name": "Ensemble_FV1.00_ML0.00",
+      "total_return": -0.3114567352572418,
+      "annual_return": -0.12133747115088,
+      "annual_vol": 0.1318700042537061,
+      "sharpe_ratio": -0.9201294247131255,
+      "max_drawdown": -0.3552564346357341,
+      "win_rate": 0.4951856946354883,
+      "days": 727
+    }
+  ],
+  "best_weights": {
+    "w_fv": 0.0,
+    "w_ml": 1.0,
+    "sharpe": 4.177643470742792,
+    "annual_return": 0.9359214611602054,
+    "annual_vol": 0.22403095613944216
+  }
+}

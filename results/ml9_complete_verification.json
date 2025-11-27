@@ -1,0 +1,18 @@
+{
+  "strategy": "ML9_Complete_Verification",
+  "date": "2025-11-27T10:26:23.348612",
+  "overall_metrics": {
+    "name": "ML9_Overall",
+    "total_return": 5.72431956699336,
+    "annual_return": 0.9359214611602054,
+    "annual_vol": 0.22403095613944216,
+    "sharpe_ratio": 4.177643470742792,
+    "max_drawdown": -0.12522283856092084,
+    "win_rate": 0.5598349381017882,
+    "days": 727
+  },
+  "look_ahead_bias": "None - 2-year rolling training window",
+  "walk_forward": {
+    "windows": [
+      {
+        "start": 
