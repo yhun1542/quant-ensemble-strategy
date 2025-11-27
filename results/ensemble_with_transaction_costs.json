@@ -1,0 +1,118 @@
+{
+  "baseline": {
+    "sharpe": 1.3256016043202354,
+    "annual_return": 0.17875179365872582,
+    "annual_volatility": 0.13484578856585588,
+    "max_drawdown": -0.09507676966314127,
+    "win_rate": 0.6233766233766234,
+    "num_periods": 77
+  },
+  "recommended": {
+    "sharpe": 1.2900053869592771,
+    "annual_return": 0.1739517936587258,
+    "annual_volatility": 0.13484578856585588,
+    "max_drawdown": -0.10124743785369494,
+    "win_rate": 0.6233766233766234,
+    "annual_cost": 0.004800000000000001,
+    "num_periods": 77
+  },
+  "all_scenarios": {
+    "baseline": {
+      "sharpe": 1.3256016043202354,
+      "annual_return": 0.17875179365872582,
+      "annual_volatility": 0.13484578856585588,
+      "max_drawdown": -0.09507676966314127,
+      "win_rate": 0.6233766233766234,
+      "num_periods": 77
+    },
+    "낙관적_0.05%": {
+      "sharpe": 1.3122530228098757,
+      "annual_return": 0.17695179365872576,
+      "annual_volatility": 0.13484578856585588,
+      "max_drawdown": -0.09739542815157964,
+      "win_rate": 0.6233766233766234,
+      "annual_cost": 0.0018000000000000004,
+      "num_periods": 77
+    },
+    "낙관적_0.10%": {
+      "sharpe": 1.2989044412995168,
+      "annual_return": 0.1751517936587258,
+      "annual_volatility": 0.13484578856585588,
+      "max_drawdown": -0.09970849432877882,
+      "win_rate": 0.6233766233766234,
+      "annual_cost": 0.0036000000000000008,
+      "num_periods": 77
+    },
+    "낙관적_0.20%": {
+      "sharpe": 1.2722072782787983,
+      "annual_return": 0.17155179365872578,
+      "annual_volatility": 0.13484578856585586,
+      "max_drawdown": -0.10431790030937627,
+      "win_rate": 0.5974025974025974,
+      "annual_cost": 0.0072000000000000015,
+      "num_periods": 77
+    },
+    "현실적_0.05%": {
+      "sharpe": 1.3078034956397564,
+      "annual_return": 0.17635179365872583,
+      "annual_volatility": 0.13484578856585588,
+      "max_drawdown": -0.09816707095348565,
+      "win_rate": 0.6233766233766234,
+      "annual_cost": 0.0024000000000000007,
+      "num_periods": 77
+    },
+    "현실적_0.10%": {
+      "sharpe": 1.2900053869592771,
+      "annual_return": 0.1739517936587258,
+      "annual_volatility": 0.13484578856585588,
+      "max_drawdown": -0.10124743785369494,
+      "win_rate": 0.6233766233766234,
+      "annual_cost": 0.004800000000000001,
+      "num_periods": 77
+    },
+    "현실적_0.20%": {
+      "sharpe": 1.254409169598319,
+      "annual_return": 0.1691517936587258,
+      "annual_volatility": 0.13484578856585588,
+      "max_drawdown": -0.10737848818187323,
+      "win_rate": 0.5974025974025974,
+      "annual_cost": 0.009600000000000003,
+      "num_periods": 77
+    },
+    "보수적_0.05%": {
+      "sharpe": 1.3033539684696365,
+      "annual_return": 0.17575179365872576,
+      "annual_volatility": 0.13484578856585586,
+      "max_drawdown": -0.09893809285642052,
+      "win_rate": 0.6233766233766234,
+      "annual_cost": 0.003000000000000001,
+      "num_periods": 77
+    },
+    "보수적_0.10%": {
+      "sharpe": 1.2811063326190375,
+      "annual_return": 0.17275179365872578,
+      "annual_volatility": 0.13484578856585588,
+      "max_drawdown": -0.10278390526879533,
+      "win_rate": 0.6103896103896104,
+      "annual_cost": 0.006000000000000002,
+      "num_periods": 77
+    },
+    "보수적_0.20%": {
+      "sharpe": 1.23661106091784,
+      "annual_return": 0.16675179365872575,
+      "annual_volatility": 0.13484578856585586,
+      "max_drawdown": -0.11042923124848447,
+      "win_rate": 0.5844155844155844,
+      "annual_cost": 0.012000000000000004,
+      "num_periods": 77
+    }
+  },
+  "assumptions": {
+    "turnover_rate": 0.4,
+    "cost_rate": 0.001,
+    "ensemble_weights": {
+      "fv3c": 0.6,
+      "ml9": 0.4
+    }
+  }
+}
