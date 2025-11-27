@@ -1,0 +1,156 @@
+{
+  "strategy": "QV_v2_1_Inverse_Vol",
+  "date": "2025-11-27T10:18:52.075196",
+  "configurations": [
+    {
+      "config": {
+        "name": "QV_v2.0_EqualWeight_Top20",
+        "top_quantile": 0.2,
+        "use_inverse_vol": false
+      },
+      "metrics_gross": {
+        "name": "QV_v2.0_EqualWeight_Top20_Gross",
+        "total_return": 6.142716538005137,
+        "annual_return": 0.8693206947357888,
+        "annual_vol": 1.2449990151693342,
+        "sharpe_ratio": 0.6982501063404867,
+        "max_drawdown": -0.1880723141940619,
+        "win_rate": 0.5441919191919192,
+        "days": 792
+      },
+      "metrics_net": {
+        "name": "QV_v2.0_EqualWeight_Top20_Net",
+        "total_return": 6.078349308694589,
+        "annual_return": 0.8639441966096344,
+        "annual_vol": 1.245003819685667,
+        "sharpe_ratio": 0.6939289526258314,
+        "max_drawdown": -0.18807231419406198,
+        "win_rate": 0.5441919191919192,
+        "days": 792
+      },
+      "tc_stats": {
+        "total_bps": 8.5
+      }
+    },
+    {
+      "config": {
+        "name": "QV_v2.1_InverseVol_Top20",
+        "top_quantile": 0.2,
+        "use_inverse_vol": true
+      },
+      "metrics_gross": {
+        "name": "QV_v2.1_InverseVol_Top20_Gross",
+        "total_return": 0.6966178339085207,
+        "annual_return": 0.20110426299035433,
+        "annual_vol": 0.19515360292320516,
+        "sharpe_ratio": 1.030492186554664,
+        "max_drawdown": -0.2989524874887518,
+        "win_rate": 0.5557083906464925,
+        "days": 727
+      },
+      "metrics_net": {
+        "name": "QV_v2.1_InverseVol_Top20_Net",
+        "total_return": 0.6773853169927528,
+        "annual_return": 0.1963671434516272,
+        "annual_vol": 0.19517090744058901,
+        "sharpe_ratio": 1.0061291717435004,
+        "max_drawdown": -0.3009710803577658,
+        "win_rate": 0.5557083906464925,
+        "days": 727
+      },
+      "tc_stats": {
+        "total_bps": 8.5
+      }
+    },
+    {
+      "config": {
+        "name": "QV_v2.1_EqualWeight_Top30",
+        "top_quantile": 0.3,
+        "use_inverse_vol": false
+      },
+      "metrics_gross": {
+        "name": "QV_v2.1_EqualWeight_Top30_Gross",
+        "total_return": 3.7673659571652083,
+        "annual_return": 0.6436747495176007,
+        "annual_vol": 0.8149761971979494,
+        "sharpe_ratio": 0.7898080357815146,
+        "max_drawdown": -0.16557456208581853,
+        "win_rate": 0.553030303030303,
+        "days": 792
+      },
+      "metrics_net": {
+        "name": "QV_v2.1_EqualWeight_Top30_Net",
+        "total_return": 3.737891272194756,
+        "annual_return": 0.6404344921779217,
+        "annual_vol": 0.8149700368215451,
+        "sharpe_ratio": 0.7858380839075663,
+        "max_drawdown": -0.16557456208581864,
+        "win_rate": 0.553030303030303,
+        "days": 792
+      },
+      "tc_stats": {
+        "total_bps": 8.5
+      }
+    },
+    {
+      "config": {
+        "name": "QV_v2.1_InverseVol_Top30",
+        "top_quantile": 0.3,
+        "use_inverse_vol": true
+      },
+      "metrics_gross": {
+        "name": "QV_v2.1_InverseVol_Top30_Gross",
+        "total_return": 0.5185976638042797,
+        "annual_return": 0.15582874265092173,
+        "annual_vol": 0.17213901973683435,
+        "sharpe_ratio": 0.9052493902262966,
+        "max_drawdown": -0.27559117795268356,
+        "win_rate": 0.5502063273727648,
+        "days": 727
+      },
+      "metrics_net": {
+        "name": "QV_v2.1_InverseVol_Top30_Net",
+        "total_return": 0.5069199652790086,
+        "annual_return": 0.15274009457044402,
+        "annual_vol": 0.17212735462981751,
+        "sharpe_ratio": 0.887366769209529,
+        "max_drawdown": -0.27673866790606194,
+        "win_rate": 0.5502063273727648,
+        "days": 727
+      },
+      "tc_stats": {
+        "total_bps": 8.5
+      }
+    },
+    {
+      "config": {
+        "name": "QV_v2.1_InverseVol_Top40",
+        "top_quantile": 0.4,
+        "use_inverse_vol": true
+      },
+      "metrics_gross": {
+        "name": "QV_v2.1_InverseVol_Top40_Gross",
+        "total_return": 0.5248424426389116,
+        "annual_return": 0.15747406673154019,
+        "annual_vol": 0.14999561625694793,
+        "sharpe_ratio": 1.04985779358899,
+        "max_drawdown": -0.21037621949935714,
+        "win_rate": 0.5447042640990372,
+        "days": 727
+      },
+      "metrics_net": {
+        "name": "QV_v2.1_InverseVol_Top40_Net",
+        "total_return": 0.5151669408350357,
+        "annual_return": 0.15492296136224337,
+        "annual_vol": 0.15000353072689693,
+        "sharpe_ratio": 1.032795432290877,
+        "max_drawdown": -0.21141780079219505,
+        "win_rate": 0.5433287482806052,
+        "days": 727
+      },
+      "tc_stats": {
+        "total_bps": 8.5
+      }
+    }
+  ]
+}
