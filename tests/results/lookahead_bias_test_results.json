@@ -1,0 +1,29 @@
+{
+  "label_shuffle": {
+    "original_sharpe": 2.372648418784465,
+    "shuffled_mean": 2.6155517934913015,
+    "shuffled_std": 0.5323027903516755,
+    "z_score": -0.4563255709149257,
+    "verdict": "\u274c FAIL - \uc6d0\ubcf8 \uc804\ub7b5\uc774 \ub79c\ub364\uacfc \ud070 \ucc28\uc774 \uc5c6\uc74c (z < 2.0) - \ub8e9\uc5b4\ud5e4\ub4dc \uc758\uc2ec"
+  },
+  "reverse_time": {
+    "forward_sharpe": 2.9356035008034533,
+    "reverse_sharpe": -0.5420025371834318,
+    "sharpe_diff": 3.4776060379868854,
+    "sharpe_ratio": -0.18463070269370155,
+    "verdict": "\u2705 PASS - \uc5ed\ubc29\ud5a5 \uc131\ub2a5\uc774 \ud06c\uac8c \ub5a8\uc5b4\uc9d0 (\uc815\uc0c1)"
+  },
+  "horizon_extension": {
+    "original_sharpe": 2.372648418784465,
+    "extended_sharpe": 4.875465484729123,
+    "sharpe_change": 2.5028170659446576,
+    "sharpe_change_pct": 105.48621726378151,
+    "verdict": "\u274c FAIL - Horizon \ud655\uc7a5\ud574\ub3c4 \uc131\ub2a5 \uc720\uc9c0 - \ub8e9\uc5b4\ud5e4\ub4dc \uc758\uc2ec"
+  },
+  "manual_verification": {
+    "n_samples": 5,
+    "match_rate": 0.0,
+    "avg_diff": 0.011407378811210988,
+    "verdict": "\u274c FAIL - \uc218\ub3d9 \uacc4\uc0b0\uacfc \ubd88\uc77c\uce58 - \ub8e9\uc5b4\ud5e4\ub4dc \uc758\uc2ec"
+  }
+}

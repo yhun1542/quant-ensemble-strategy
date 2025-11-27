@@ -1,0 +1,130 @@
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:45: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  first_days = df.groupby(["year", "month"]).apply(lambda x: x.index.min())
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:45: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  first_days = df.groupby(["year", "month"]).apply(lambda x: x.index.min())
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:45: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  first_days = df.groupby(["year", "month"]).apply(lambda x: x.index.min())
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:45: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  first_days = df.groupby(["year", "month"]).apply(lambda x: x.index.min())
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v1.py:223: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+  monthly_ret = ret_daily.resample("M").apply(lambda x: (1 + x).prod() - 1)
+룩어헤드 바이어스 테스트 프레임워크
+====================================================================================================
+
+데이터 로딩 완료:
+  - 기간: 2021-06-30 ~ 2024-12-31
+  - 거래일 수: 792
+  - 종목 수: 30
+
+====================================================================================================
+룩어헤드 바이어스 테스트 시작
+====================================================================================================
+
+====================================================================================================
+테스트 1: 라벨 셔플 테스트
+====================================================================================================
+시행 횟수: 10
+
+원본 전략 Sharpe: 2.3726
+
+셔플 테스트 결과:
+  - 평균 Sharpe: 2.6156
+  - 표준편차: 0.5323
+  - 최소값: 1.8673
+  - 최대값: 3.6017
+
+Z-score: -0.46
+
+판정: ❌ FAIL - 원본 전략이 랜덤과 큰 차이 없음 (z < 2.0) - 룩어헤드 의심
+
+====================================================================================================
+테스트 2: Train/Test 날짜 뒤집기 테스트
+====================================================================================================
+
+전체 기간: 2021-06-30 ~ 2024-12-31
+중간 날짜: 2023-06-06
+
+정방향 테스트:
+  - 학습 기간: 2021-06-30 ~ 2023-06-06
+  - 테스트 기간: 2023-06-06 ~ 2024-12-31
+  → Sharpe: 2.9356
+
+역방향 테스트:
+  - 학습 기간: 2023-06-06 ~ 2024-12-31
+  - 테스트 기간: 2021-06-30 ~ 2023-06-06
+  → Sharpe: -0.5420
+
+비교:
+  - Sharpe 차이: 3.4776
+  - 역방향/정방향 비율: -18.46%
+
+판정: ✅ PASS - 역방향 성능이 크게 떨어짐 (정상)
+
+====================================================================================================
+테스트 3: 예측 Horizon 변경 테스트
+====================================================================================================
+원본 Horizon: 252일 (약 12개월)
+확장 Horizon: 504일 (약 24개월)
+
+원본 Horizon Sharpe: 2.3726
+확장 Horizon Sharpe: 4.8755
+
+변화:
+  - Sharpe 변화: +2.5028 (+105.5%)
+
+판정: ❌ FAIL - Horizon 확장해도 성능 유지 - 룩어헤드 의심
+
+====================================================================================================
+테스트 4: 날짜-티커 수동 검증
+====================================================================================================
+샘플 수: 5
+
+검증 샘플:
+Traceback (most recent call last):
+  File "/home/ubuntu/quant-ensemble-strategy/tests/test_lookahead_bias.py", line 281, in test_4_manual_verification
+    print(f"  - {date.date()} | {ticker:5s} | 엔진: {factor_value:8.4f} | 수동: {manual_value:8.4f} | 차이: {diff:.2e} | {'✓' if match else '✗'}")
+                 ^^^^^^^^^
+AttributeError: 'numpy.datetime64' object has no attribute 'date'. Did you mean: 'data'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/quant-ensemble-strategy/tests/test_lookahead_bias.py", line 422, in <module>
+    main()
+  File "/home/ubuntu/quant-ensemble-strategy/tests/test_lookahead_bias.py", line 404, in main
+    results = tester.run_all_tests()
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/quant-ensemble-strategy/tests/test_lookahead_bias.py", line 334, in run_all_tests
+    self.test_4_manual_verification(n_samples=5)
+  File "/home/ubuntu/quant-ensemble-strategy/tests/test_lookahead_bias.py", line 292, in test_4_manual_verification
+    print(f"  - {date.date()} | {ticker:5s} | 오류: {str(e)}")
+                 ^^^^^^^^^
+AttributeError: 'numpy.datetime64' object has no attribute 'date'. Did you mean: 'data'?

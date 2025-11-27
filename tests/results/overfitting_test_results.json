@@ -1,0 +1,47 @@
+{
+  "walkforward_stability": {
+    "window_months": 12,
+    "step_months": 6,
+    "n_windows": 0,
+    "sharpe_mean": 0,
+    "sharpe_std": 0,
+    "sharpe_cv": 0,
+    "windows": [],
+    "verdict": "\u26a0\ufe0f  INCONCLUSIVE - \uc708\ub3c4\uc6b0 \uc218 \ubd80\uc871"
+  },
+  "rebalance_sensitivity": {
+    "base_sharpe": 2.372648418784465,
+    "alt1_sharpe": 1.6278934325855743,
+    "alt2_sharpe": 1.6703816205887108,
+    "max_change_pct": 31.3891843520768,
+    "verdict": "\u26a0\ufe0f  CAUTION - \ub9ac\ubc38 \ub0a0\uc9dc\uc5d0 \ub2e4\uc18c \ubbfc\uac10"
+  },
+  "portfolio_size_sensitivity": {
+    "results_by_size": [
+      {
+        "n_long": 4,
+        "sharpe": 2.0545285443556405,
+        "ann_return": 0.4236909838931955
+      },
+      {
+        "n_long": 6,
+        "sharpe": 2.372648418784465,
+        "ann_return": 0.40188490148501144
+      },
+      {
+        "n_long": 8,
+        "sharpe": 2.1173217995913958,
+        "ann_return": 0.32650155191917274
+      },
+      {
+        "n_long": 10,
+        "sharpe": 2.037582350458514,
+        "ann_return": 0.2981432870332954
+      }
+    ],
+    "sharpe_mean": 2.145520278297504,
+    "sharpe_std": 0.13445486074732058,
+    "sharpe_cv": 0.06266771845848602,
+    "verdict": "\u2705 PASS - \ud3ec\ud2b8\ud3f4\ub9ac\uc624 \ud06c\uae30\uc5d0 \uac15\uac74\ud568"
+  }
+}

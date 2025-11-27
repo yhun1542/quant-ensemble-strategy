@@ -1,0 +1,32 @@
+/home/ubuntu/quant-ensemble-strategy/engines/momentum_cs_v2_fixed.py:46: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  first_days = df.groupby(["year", "month"], group_keys=False).apply(lambda x: x.index.min())
+과적합성 테스트 프레임워크
+====================================================================================================
+
+데이터 로딩 완료:
+  - 기간: 2021-06-30 ~ 2024-12-31
+  - 거래일 수: 792
+  - 종목 수: 30
+
+====================================================================================================
+과적합성 테스트 시작
+====================================================================================================
+
+====================================================================================================
+테스트 1: IS vs OOS 성과 비교
+====================================================================================================
+Split 날짜: 2023-01-01
+
+In-Sample (2021-06-30 ~ 2022-12-30):
+Traceback (most recent call last):
+  File "/home/ubuntu/quant-ensemble-strategy/tests/test_overfitting.py", line 462, in <module>
+    main()
+  File "/home/ubuntu/quant-ensemble-strategy/tests/test_overfitting.py", line 444, in main
+    results = tester.run_all_tests()
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/quant-ensemble-strategy/tests/test_overfitting.py", line 373, in run_all_tests
+    self.test_1_is_vs_oos()
+  File "/home/ubuntu/quant-ensemble-strategy/tests/test_overfitting.py", line 59, in test_1_is_vs_oos
+    print(f"  - Sharpe: {metrics_is['sharpe']:.4f}")
+                         ~~~~~~~~~~^^^^^^^^^^
+KeyError: 'sharpe'
