@@ -1,6 +1,19 @@
 #!/usr/bin/env python3
 """
-Factor Value v4 - Signal Smoothing 지원
+Factor Value v4 Engine with Signal Smoothing
+
+⚠️ WARNING: DEPRECATED - DO NOT USE IN PRODUCTION ⚠️
+
+This engine has been tested and found unsuitable for live trading:
+- Long-only Sharpe: 0.48 (weak alpha)
+- Long/short Sharpe: NaN (total return -234%, max DD -271%)
+
+Root cause: Value Proxy (1/price) lacks fundamental data and generates
+noisy signals unsuitable for cross-sectional long/short strategies.
+
+See experiments/fv4_failed_case.md for detailed analysis.
+
+Use FV3c (Factor Value v3c) instead for production.
 """
 from __future__ import annotations
 from dataclasses import dataclass
@@ -13,6 +26,9 @@ import numpy as np
 class FV4Config:
     """FV4 설정"""
     top_quantile: float = 0.2  # 상위/하위 20% 선택
+    long_gross: float = 0.5   # 롱 총합 (기본값: 0.5 = 50%)
+    short_gross: float = 0.5  # 숏 총합 (기본값: 0.5 = 50%, 실제는 음수)
+    long_only: bool = False   # True면 숏 안 씀 (롱온리 모드)
     
 
 class FactorValueV4:
@@ -69,9 +85,9 @@ class FactorValueV4:
             short_tickers = factors_sorted.tail(n_short).index.tolist()
             
             # 변동성 역가중
-            portfolio = {}
+            portfolio: dict[str, float] = {}
             
-            # Long positions
+            # ----- Long positions (역변동성 가중, 총합 = cfg.long_gross) -----
             long_vols = []
             for ticker in long_tickers:
                 vol = factors_at_date.loc[ticker, "volatility_30d"]
@@ -81,22 +97,34 @@ class FactorValueV4:
             if long_vols:
                 total_inv_vol = sum(w for _, w in long_vols)
                 for ticker, inv_vol in long_vols:
-                    portfolio[ticker] = inv_vol / total_inv_vol
+                    weight = (inv_vol / total_inv_vol) * self.cfg.long_gross
+                    portfolio[ticker] = weight
             
-            # Short positions
-            short_vols = []
-            for ticker in short_tickers:
-                vol = factors_at_date.loc[ticker, "volatility_30d"]
-                if vol > 0 and not np.isnan(vol):
-                    short_vols.append((ticker, 1.0 / vol))
-            
-            if short_vols:
-                total_inv_vol = sum(w for _, w in short_vols)
-                for ticker, inv_vol in short_vols:
-                    portfolio[ticker] = -inv_vol / total_inv_vol
+            # ----- Short positions (역변동성 가중, 총합 = -cfg.short_gross) -----
+            if not self.cfg.long_only:
+                short_vols = []
+                for ticker in short_tickers:
+                    vol = factors_at_date.loc[ticker, "volatility_30d"]
+                    if vol > 0 and not np.isnan(vol):
+                        short_vols.append((ticker, 1.0 / vol))
+                
+                if short_vols:
+                    total_inv_vol = sum(w for _, w in short_vols)
+                    for ticker, inv_vol in short_vols:
+                        weight = -(inv_vol / total_inv_vol) * self.cfg.short_gross
+                        # 롱과 겹치면 더해줌
+                        portfolio[ticker] = portfolio.get(ticker, 0.0) + weight
             
             if portfolio:
-                weights_by_date[d] = pd.Series(portfolio)
+                w = pd.Series(portfolio)
+                
+                # 디버깅용 체크: gross/net 출력
+                gross = w.abs().sum()
+                net = w.sum()
+                # 예: gross는 1.0±1e-6 근처, net은 (long_gross - short_gross) 근처
+                # print(f"{d.date()}: gross={gross:.4f}, net={net:.4f}")
+                
+                weights_by_date[d] = w
         
         return weights_by_date
 
